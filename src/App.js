@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { createContext, useReducer } from "react";
+import Home from "./pages/home/Home";
+import { appReducer, initial } from "./reducer/appReducer";
 
-function App() {
+export const DataContext = createContext();
+const App = () => {
+  const [state, dispatch] = useReducer(appReducer, initial);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <DataContext.Provider value={{ state: state, dispatch: dispatch }}>
+        <Home />
+      </DataContext.Provider>
+    </>
   );
-}
+};
 
 export default App;
