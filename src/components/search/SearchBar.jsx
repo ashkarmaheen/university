@@ -13,9 +13,10 @@ import { DataContext } from "../../App";
 import studentImage from "../../image/student.png";
 import bubbleImage from "../../image/bubble start.png";
 import axios from "axios";
+import bubbleoImage from "../../image/bubble end.png";
 
 const SearchBar = () => {
-  const { state, dispatch } = useContext(DataContext);
+  const { state, dispatch, mediaQuery } = useContext(DataContext);
   const [country, setCountry] = useState("India");
   const [search, setSearch] = useState();
   const handleChange = (event) => {
@@ -48,77 +49,144 @@ const SearchBar = () => {
   //console.log(state);
   return (
     <>
-      <Box sx={{ display: "flex", justifyContent: "center", mt: 15 }}>
+      <Stack
+        direction="row"
+        sx={{
+          justifyContent: "center",
+          mt: 5,
+          height: {
+            xs: "135px",
+            sm: "160px",
+            md: "243px",
+            lg: "358px",
+          },
+        }}
+      >
         <Box
           sx={{
-            width: "160px",
-            position: "relative",
-            left: "50px",
-            top: "10px",
+            width: "8%",
+            height: {
+              xs: "125px",
+              sm: "80%;",
+              md: "67%",
+              lg: "215px",
+            },
+            display: "flex",
+            alignItems: "flex-end",
           }}
         >
-          <img src={bubbleImage} alt="bubble-image" style={{ width: "100%" }} />
+          <Box sx={{ width: "100%" }}>
+            <img
+              src={bubbleImage}
+              alt="bubble-image"
+              style={{ width: "100%" }}
+            />
+          </Box>
         </Box>
-        <Grid sx={{ zIndex: "0", position: "relative", left: "60px" }}>
-          <TextField
-            InputProps={{
-              style: { width: "500px", borderRadius: "4px 0px 0px 4px" },
-            }}
-            label="search"
-            id="fullWidth"
-            onChange={searchHandleChange}
-          />
-          <Select
-            sx={{
-              width: "160px",
-              height: "56px",
-              borderRadius: "0px 4px 4px 0px",
-            }}
-            labelId="demo-simple-select-filled-label"
-            id="demo-simple-select-filled"
-            variant="filled"
-            value={country}
-            onChange={handleChange}
-          >
-            {state &&
-              state.api.countryAPI !== "" &&
-              state.api.countryAPI?.map((value, index) => (
-                <MenuItem key={index} value={value.name}>
-                  <Stack direction={"row"} spacing={2}>
-                    <Typography
-                      variant="button"
-                      display="block"
-                      gutterBottom
-                      sx={{ fontWeight: 600, mt: 2 }}
-                    >
-                      {value.name}
-                    </Typography>
-                    <Avatar
-                      alt={value.name}
-                      src={value.flag}
-                      sx={{ width: 34, height: 24 }}
-                      variant="square"
-                    />
-                  </Stack>
-                </MenuItem>
-              ))}
-          </Select>
-        </Grid>
         <Box
           sx={{
-            height: "350px",
-            width: "350px",
-            position: "relative",
-            bottom: "100px",
+            width: {
+              xs: "83%",
+              sm: "69%",
+              md: "55%",
+              lg: "50%",
+            },
+            height: {
+              xs: "120px",
+              sm: "75%",
+              md: "60%",
+              lg: "200px",
+            },
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <img
-            src={studentImage}
-            alt="stundentimage"
-            style={{ width: "100%" }}
-          />
+          <Grid sx={{ width: "100%" }}>
+            <TextField
+              sx={{
+                width: {
+                  xs: "66%",
+                  sm: "65.9%",
+                  md: "71%",
+                  lg: "78%",
+                  border: "1px solid #00000014",
+                  borderRadius: "10px 0px 0px 10px",
+                  borderColor: state.theme.borderClo,
+                },
+              }}
+              placeholder="Search"
+              onChange={searchHandleChange}
+            />
+            <Select
+              sx={{
+                width: "160px",
+                height: "57.2px",
+                borderRadius: "0px 4px 4px 0px",
+                color: state.theme.fontColor,
+                background: state.theme.selectBg,
+                borderColor: state.theme.selectborder,
+              }}
+              labelId="demo-simple-select-filled-label"
+              id="demo-simple-select-filled"
+              variant="filled"
+              value={country}
+              onChange={handleChange}
+            >
+              {state &&
+                state.api.countryAPI !== "" &&
+                state.api.countryAPI?.map((value, index) => (
+                  <MenuItem key={index} value={value.name} sx={{}}>
+                    <Stack direction={"row"} spacing={2}>
+                      <Typography
+                        variant="button"
+                        display="block"
+                        gutterBottom
+                        sx={{ fontWeight: 600, mt: 2 }}
+                      >
+                        {value.name}
+                      </Typography>
+                      <Avatar
+                        alt={value.name}
+                        src={value.flag}
+                        sx={{ width: 34, height: 24 }}
+                        variant="square"
+                      />
+                    </Stack>
+                  </MenuItem>
+                ))}
+            </Select>
+          </Grid>
         </Box>
-      </Box>
+        <Box
+          sx={{
+            width: "8%",
+            height: {
+              xs: "120px",
+              sm: "",
+              md: "",
+              lg: "200px",
+            },
+          }}
+        >
+          <Box sx={{ width: "100%" }}>
+            <img
+              src={bubbleImage}
+              alt="bubbleoimage-end"
+              style={{ width: "100%" }}
+            />
+          </Box>
+        </Box>
+        {mediaQuery.mobile && (
+          <Box sx={{ width: "25%", height: "200px" }}>
+            <img
+              src={studentImage}
+              alt="stundentimage"
+              style={{ width: "100%" }}
+            />
+          </Box>
+        )}
+      </Stack>
     </>
   );
 };
