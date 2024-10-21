@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -6,9 +6,12 @@ import CardContent from "@mui/material/CardContent";
 import LanguageIcon from "@mui/icons-material/Language";
 import Typography from "@mui/material/Typography";
 import { Link } from "@mui/material";
+import { DataContext } from "../../App";
 
 const Cards = ({ pro, flag }) => {
-  console.log(flag);
+  const { state, dispatch } = useContext(DataContext);
+
+  console.log(state);
 
   var flagFilter = flag.filter(function (el) {
     return el?.iso2 === pro.alpha_two_code;
@@ -19,11 +22,22 @@ const Cards = ({ pro, flag }) => {
     <>
       <Card
         style={{
+          margin: "10px",
           minWidth: "250px",
           height: "200px",
           maxWidth: "250px",
+          cursor: "pointer",
+          background: state.theme.bgColor,
+          color: state.theme.fontColor,
+          borderColor: state.theme.borderClo,
+          boxShadow: state.theme.borderShide,
         }}
-        sx={{ mx: 1 }}
+        sx={{
+          mx: 1,
+          border: "1px solid #00000014",
+          boxShadow:
+            "0px 2px 1px -1px #0000001f, 0px 1px 1px 0px #0000001f, 0px 1px 3px 0px #0000001f",
+        }}
       >
         <CardContent>
           <Typography
@@ -46,7 +60,11 @@ const Cards = ({ pro, flag }) => {
               justifyContent: "space-around",
             }}
           >
-            <Typography sx={{ mb: 1.5 }} color="text.secondary" variant="h6">
+            <Typography
+              sx={{ mb: 1.5, color: state.theme.fontColor }}
+              color="text.secondary"
+              variant="h6"
+            >
               Country
             </Typography>
             <Typography
@@ -75,7 +93,10 @@ const Cards = ({ pro, flag }) => {
                 {"Link"}
               </Link>
             </CardActions>
-            <Typography sx={{ mr: 3, mt: 1 }} color="text.secondary">
+            <Typography
+              sx={{ mr: 3, mt: 1, color: state.theme.fontColor }}
+              color="text.secondary"
+            >
               {pro["state-province"]}
             </Typography>
           </div>

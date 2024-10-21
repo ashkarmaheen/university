@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "headerfont";
+  src: url("./../../fonts/ARLRDBD.TTF");
+}
+
+.react-multiple-carousel__arrow--right {
+  right: calc(0% + 0px);
+}
+
+.react-multiple-carousel__arrow--left {
+  left: calc(0% + 0px);
+}
+
+#demo-simple-select-filled {
+  padding: 0px 0px 0px 15px;
+}
