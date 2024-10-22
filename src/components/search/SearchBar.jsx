@@ -54,12 +54,7 @@ const SearchBar = () => {
         sx={{
           justifyContent: "center",
           mt: 5,
-          height: {
-            xs: "135px",
-            sm: "160px",
-            md: "243px",
-            lg: "358px",
-          },
+          height: "100%",
         }}
       >
         <Box
@@ -67,8 +62,8 @@ const SearchBar = () => {
             width: "8%",
             height: {
               xs: "125px",
-              sm: "80%;",
-              md: "67%",
+              sm: "140px;",
+              md: "180px",
               lg: "215px",
             },
             display: "flex",
@@ -93,8 +88,8 @@ const SearchBar = () => {
             },
             height: {
               xs: "120px",
-              sm: "75%",
-              md: "60%",
+              sm: "125px",
+              md: "160px",
               lg: "200px",
             },
             display: "flex",
@@ -110,17 +105,24 @@ const SearchBar = () => {
                   sm: "65.9%",
                   md: "71%",
                   lg: "78%",
-                  border: "1px solid #00000014",
-                  borderRadius: "10px 0px 0px 10px",
-                  borderColor: state.theme.borderClo,
                 },
+                input: { color: state.theme.fontColor },
+                border: "1px solid #00000014",
+                borderRadius: "10px 0px 0px 10px",
+                borderColor: state.theme.borderClo,
               }}
               placeholder="Search"
+              id="fullWidth"
               onChange={searchHandleChange}
             />
             <Select
               sx={{
-                width: "160px",
+                width: {
+                  xs: "33%",
+                  sm: "33%",
+                  md: "28%",
+                  lg: "21%",
+                },
                 height: "57.2px",
                 borderRadius: "0px 4px 4px 0px",
                 color: state.theme.fontColor,
@@ -178,11 +180,20 @@ const SearchBar = () => {
           </Box>
         </Box>
         {mediaQuery.mobile && (
-          <Box sx={{ width: "25%", height: "200px" }}>
+          <Box
+            sx={{
+              width: {
+                xs: "33%",
+                sm: "33%",
+                md: "28%",
+                lg: "25%",
+              },
+            }}
+          >
             <img
               src={studentImage}
               alt="stundentimage"
-              style={{ width: "100%" }}
+              style={{ width: "100%", position: "relative", bottom: " -4px " }}
             />
           </Box>
         )}

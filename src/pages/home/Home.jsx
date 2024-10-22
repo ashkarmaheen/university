@@ -8,6 +8,12 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./home.css";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import logImg from "../../image/LERNME.png";
+
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
 
 const Home = () => {
   const { state, dispatch, mediaQuery } = useContext(DataContext);
@@ -126,35 +132,34 @@ const Home = () => {
           md={12}
           sm={12}
           xm={12}
-          sx={{ display: "flex", justifyContent: "center" }}
+          sx={{ display: "flex", justifyContent: "end" }}
         >
-          <Box
-            sx={{
-              width: "87%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              fontSize: {
-                xs: "35px",
-                sm: "30px",
-                md: "40px",
-                lg: "85px",
-              },
-              marginLeft: { xs: "0px", sm: "30px", md: "40px", lg: "50px" },
-              fontFamily: "headerfont",
-              color: "#A5A3FF",
-            }}
-          >
-            SEARCH UNIVERSITY
-          </Box>
           <FormControlLabel
             control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
             checked={state.theme.toggle}
             onChange={handleChange}
           />
         </Box>
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            fontSize: {
+              xs: "38px",
+              sm: "45px",
+              md: "60px",
+              lg: "80px",
+            },
+            fontFamily: "headerfont",
+            color: "#A5A3FF",
+          }}
+        >
+          SEARCH UNIVERSITY
+        </Box>
         <SearchBar />
-        <Box sx={{ p: 0, background: state.theme.bgColor }}>
+        <Box sx={{ background: state.theme.bgColor }}>
           <Carousel
             swipeable={true}
             draggable={true}
@@ -167,9 +172,9 @@ const Home = () => {
             customTransition="all .5"
             transitionDuration={500}
             containerClass="carousel-container"
-            removeArrowOnDeviceType={["tablet", "mobile"]}
+            // removeArrowOnDeviceType={["tablet", "mobile"]}
             dotListClass="custom-dot-list-style"
-            itemClass="carousel-item-padding-40-px"
+            // itemClass="carousel-item-padding-40-px"
             Carousel
             Carouselarrows={true}
             customButtonGroup={<ButtonGroup />}
@@ -183,6 +188,70 @@ const Home = () => {
                 </div>
               ))}
           </Carousel>
+        </Box>
+        <Box
+          sx={{
+            width: "100%",
+            height: "auto",
+            background: "#3B3B5C",
+            display: { xs: "", sm: "flex", md: "flex", lg: "flex" },
+            justifyContent: "center",
+          }}
+        >
+          <Box
+            sx={{
+              width: { xs: "100%", sm: "30%", md: "30%", lg: "30%" },
+              paddingLeft: { xs: "30px", sm: "", md: "", lg: "" },
+              height: "100%",
+            }}
+          >
+            <img src={logImg} alt="LearnMe" />
+          </Box>
+          <Box
+            sx={{
+              width: { xs: "100%", sm: "30%", md: "30%", lg: "30%" },
+              paddingLeft: { xs: "30px", sm: "", md: "", lg: "" },
+              height: "100%",
+              color: "#ffffff",
+              fontFamily: "headerfont",
+            }}
+          >
+            <h1>Contact</h1>
+            <p>Office No. 6, Kottayam, Erattupetta</p>
+            <p>lernme@gmail.com</p>
+            <p>India :+91 9876543212, +91 1234509876</p>
+          </Box>
+          <Box
+            sx={{
+              width: { xs: "100%", sm: "30%", md: "30%", lg: "30%" },
+              paddingLeft: { xs: "30px", sm: "", md: "", lg: "" },
+              height: "100%",
+              color: "#ffffff",
+              fontFamily: "headerfont",
+              display: { xs: "", sm: "flex", md: "flex", lg: "flex" },
+              justifyContent: "center",
+            }}
+          >
+            <Box>
+              <h1>Social</h1>
+              <Box>
+                <InstagramIcon fontSize="large" />
+                <FacebookIcon fontSize="large" />
+                <LinkedInIcon fontSize="large" />
+                <TwitterIcon fontSize="large" />
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            width: "100%",
+            background: "#A5A3FF",
+            color: "#ffffff",
+            textAlign: "center",
+          }}
+        >
+          Copyright © 2024 learnme
         </Box>
       </div>
     </>

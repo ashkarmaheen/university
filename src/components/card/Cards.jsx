@@ -22,7 +22,7 @@ const Cards = ({ pro, flag }) => {
     <>
       <Card
         style={{
-          margin: "10px",
+          marginBottom: "10px",
           minWidth: "250px",
           height: "200px",
           maxWidth: "250px",
@@ -73,9 +73,8 @@ const Cards = ({ pro, flag }) => {
             >
               <Box
                 sx={{
-                  width: "30px",
+                  width: "100%",
                   height: "20px",
-                  background: "red",
                   display: "flex",
                   mx: 1,
                 }}
