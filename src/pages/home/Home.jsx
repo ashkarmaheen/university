@@ -203,9 +203,13 @@ const Home = () => {
               width: { xs: "100%", sm: "30%", md: "30%", lg: "30%" },
               paddingLeft: { xs: "30px", sm: "", md: "", lg: "" },
               height: "100%",
+              color: "#A5A3FF",
+              fontFamily: "footerfont",
+              fontSize: "30px",
             }}
           >
-            <img src={logImg} alt="LearnMe" />
+            {/* <img src={logImg} alt="LearnMe" /> */}
+            LEARNME
           </Box>
           <Box
             sx={{
@@ -213,7 +217,7 @@ const Home = () => {
               paddingLeft: { xs: "30px", sm: "", md: "", lg: "" },
               height: "100%",
               color: "#ffffff",
-              fontFamily: "headerfont",
+              fontFamily: "footerfont",
             }}
           >
             <h1>Contact</h1>
