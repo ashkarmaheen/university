@@ -3,6 +3,11 @@
   src: url("./../../fonts/ARLRDBD.TTF");
 }
 
+@font-face {
+  font-family: "footerfont";
+  src: url("./../../fonts/Poppins-Medium.ttf");
+}
+
 .react-multiple-carousel__arrow--right {
   right: calc(0% + 0px);
 }
